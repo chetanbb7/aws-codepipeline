@@ -23,9 +23,9 @@ class AwsCodepipelineStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         git_input = pipelines.CodePipelineSource.connection(
-            repo_string="nspacer/aws-codepipeline",
+            repo_string="chetanbb7/aws-codepipeline",
             branch="main",
-            connection_arn="arn:aws:codestar-connections:eu-central-1:372775801647:connection/5ba58d40-4796-443d-bd86-37c610f0e665"
+            connection_arn="arn:aws:codestar-connections:ap-south-1:136109974390:connection/9580cf42-2cdf-4969-bdfa-02bb80140e33"
         )
 
         code_pipeline = codepipeline.Pipeline(
@@ -56,5 +56,5 @@ class AwsCodepipelineStack(Stack):
 
         deployment_wave.add_stage(DeployStage(
             self, 'DeployStage',
-            env=(Environment(account='372775801647', region='eu-central-1'))
+            env=(Environment(account='136109974390', region='ap-south-1'))
         ))
